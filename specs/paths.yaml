@@ -1,0 +1,9 @@
+/game/character:
+    $ref: paths/game/character/index.yaml
+
+/game/land:
+    $ref: paths/game/land/index.yaml
+
+/login:
+    $ref: paths/login/index.yaml
+

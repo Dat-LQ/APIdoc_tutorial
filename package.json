@@ -1,0 +1,22 @@
+{
+  "name": "api_tutorial",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "specs": "cd specs && multi-file-swagger openapi.yaml > openapi.json && npx @redocly/openapi-cli preview-docs openapi.json",
+    "specs-build": "cd specs && multi-file-swagger openapi.yaml > openapi.json && redoc-cli build openapi.json -o api-documentation.html --title 'Demo API docs'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "multi-file-swagger": "^2.3.0",
+    "nodemon": "^2.0.16",
+    "redoc": "^2.0.0-rc.72",
+    "redoc-cli": "^0.13.16"
+  }
+}

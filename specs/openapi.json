@@ -1,0 +1,323 @@
+{
+  "swagger": "2.0",
+  "produces": [
+    "application/json"
+  ],
+  "info": {
+    "version": "0.0.0",
+    "title": "Sample API"
+  },
+  "definitions": {
+    "User": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "attribute": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "xml": {
+              "namespace": "http://example.com/schema/sample",
+              "prefix": "sample"
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/game/character": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "characters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "character's id",
+                        "example": 74565
+                      },
+                      "image": {
+                        "type": "string",
+                        "description": "character's image",
+                        "example": "../image1.png"
+                      },
+                      "spineImage": {
+                        "type": "string",
+                        "description": "character's image",
+                        "example": "../image1.png"
+                      },
+                      "job": {
+                        "type": "number",
+                        "description": "character's job (1-farmer, 2-breader, 3-cook, 4-miner)",
+                        "example": 1
+                      },
+                      "rarity": {
+                        "type": "number",
+                        "description": "character's rarity (1-common, 2-uncommon, 3-rare, 4-epic, 5-legendary)",
+                        "example": 1
+                      },
+                      "attributes": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/AttributeDisplaySetting"
+                        },
+                        "example": [
+                          {
+                            "trait_type": "gender",
+                            "value": 2
+                          },
+                          {
+                            "trait_type": "rarity",
+                            "value": 1
+                          },
+                          {
+                            "trait_type": "job",
+                            "value": 1
+                          },
+                          {
+                            "trait_type": "mainbody_id",
+                            "value": 3
+                          },
+                          {
+                            "trait_type": "head_id",
+                            "value": 32
+                          },
+                          {
+                            "trait_type": "eye_id",
+                            "value": 4
+                          },
+                          {
+                            "trait_type": "mouth_id",
+                            "value": 2
+                          },
+                          {
+                            "trait_type": "clothes_id",
+                            "value": 1
+                          },
+                          {
+                            "trait_type": "shoes_id",
+                            "value": 4
+                          },
+                          {
+                            "trait_type": "luck",
+                            "value": 93
+                          },
+                          {
+                            "trait_type": "summon1",
+                            "value": -1
+                          },
+                          {
+                            "trait_type": "summon2",
+                            "value": -1
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        }
+      }
+    },
+    "/game/land": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "lands": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "lands's id",
+                        "example": 74565
+                      },
+                      "image": {
+                        "type": "string",
+                        "description": "lands's image",
+                        "example": "../image1.png"
+                      },
+                      "spineImage": {
+                        "type": "string",
+                        "description": "lands's image",
+                        "example": "../image1.png"
+                      },
+                      "rarity": {
+                        "type": "number",
+                        "description": "land's rarity",
+                        "example": 1
+                      },
+                      "type": {
+                        "type": "number",
+                        "description": "land's type",
+                        "example": 1
+                      },
+                      "attributes": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/AttributeDisplaySetting"
+                        },
+                        "example": [
+                          {
+                            "trait_type": "type",
+                            "value": 2
+                          },
+                          {
+                            "trait_type": "rarity",
+                            "value": 1
+                          },
+                          {
+                            "trait_type": "size",
+                            "value": "16,10,0"
+                          },
+                          {
+                            "trait_type": "field",
+                            "value": "0,6,4,1"
+                          },
+                          {
+                            "trait_type": "tree",
+                            "value": "0,0,4,1"
+                          },
+                          {
+                            "trait_type": "tree",
+                            "value": "1,0,5,2"
+                          },
+                          {
+                            "trait_type": "bronze",
+                            "value": "0,8,0,1"
+                          },
+                          {
+                            "trait_type": "sliver",
+                            "value": "1,14,9,1"
+                          },
+                          {
+                            "trait_type": "clay",
+                            "value": "0,14,5,1"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Login Success",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          }
+        }
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "description": "OK",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "OK",
+            "example": "OK"
+          }
+        }
+      }
+    },
+    "400": {
+      "description": "Bad Request",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Server cannot or will not process the request due to something that is perceived to be a client error",
+            "example": "Bad Request"
+          }
+        }
+      }
+    },
+    "401": {
+      "description": "Forbidden error",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Unauthorized error",
+            "example": "Forbidden error"
+          }
+        }
+      }
+    },
+    "404": {
+      "description": "Not Found",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "The URL or its content (such as files or images) was either deleted or moved (without adjusting any internal links accordingly)",
+            "example": "Not Found"
+          }
+        }
+      }
+    },
+    "500": {
+      "description": "Internal Server Error",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "generic error response",
+            "example": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+get:
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        properties:
+          lands:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: lands's id
+                  example: 0x12345
+                image:
+                  type: string
+                  description: lands's image
+                  example: ../image1.png
+                spineImage:
+                  type: string
+                  description: lands's image
+                  example: ../image1.png
+                rarity:
+                  type: number
+                  description: land's rarity
+                  example: 1
+                type:
+                  type: number
+                  description: land's type
+                  example: 1
+                attributes:
+                  type: array
+                  items:
+                    $ref: '#/AttributeDisplaySetting'
+                  example:
+                    - trait_type: type
+                      value: 2
+                    - trait_type: rarity
+                      value: 1
+                    - trait_type: size
+                      value: 16,10,0
+                    - trait_type: field
+                      value: 0,6,4,1
+                    - trait_type: tree
+                      value: 0,0,4,1
+                    - trait_type: tree
+                      value: 1,0,5,2
+                    - trait_type: bronze
+                      value: 0,8,0,1
+                    - trait_type: sliver
+                      value: 1,14,9,1
+                    - trait_type: clay
+                      value: 0,14,5,1
+    404:
+      $ref: '#/responses/404'
+    500:
+      $ref: '#/responses/500'

@@ -1,0 +1,65 @@
+get:  
+  responses:
+    200:
+      description: Success
+      schema:
+        type: object
+        properties:
+          characters:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: character's id
+                  example: 0x12345
+                image:
+                  type: string
+                  description: character's image
+                  example: ../image1.png
+                spineImage:
+                  type: string
+                  description: character's image
+                  example: ../image1.png
+                job:
+                  type: number
+                  description: character's job (1-farmer, 2-breader, 3-cook, 4-miner)
+                  example: 1
+                rarity:
+                  type: number
+                  description: character's rarity (1-common, 2-uncommon, 3-rare, 4-epic, 5-legendary)
+                  example: 1
+                attributes:
+                  type: array
+                  items:
+                    $ref: '#/AttributeDisplaySetting'
+                  example:
+                    - trait_type: gender
+                      value: 2
+                    - trait_type: rarity
+                      value: 1
+                    - trait_type: job
+                      value: 1
+                    - trait_type: mainbody_id
+                      value: 3
+                    - trait_type: head_id
+                      value: 32
+                    - trait_type: eye_id
+                      value: 4
+                    - trait_type: mouth_id
+                      value: 2
+                    - trait_type: clothes_id
+                      value: 1
+                    - trait_type: shoes_id
+                      value: 4
+                    - trait_type: luck
+                      value: 93
+                    - trait_type: summon1
+                      value: -1
+                    - trait_type: summon2
+                      value: -1
+    404:
+      $ref: '#/responses/404'
+    500:
+      $ref: '#/responses/500'
